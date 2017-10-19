@@ -1,0 +1,14 @@
+{
+	"name": "/rich",
+	"description": "my plugin",
+	"type": "craft-plugin",
+	"authors": [
+		{
+			"name": "rich",
+			"homepage": "rich@kerntiff.com"
+		}
+	],
+	"require": {
+		"composer/installers": "~1.0"
+	}
+}
