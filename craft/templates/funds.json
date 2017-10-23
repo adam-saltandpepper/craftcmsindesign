@@ -1,0 +1,13 @@
+{% set entries = craft.entries.section('funds') %}
+{
+  "data": [
+    {% for entry in entries %}
+    {
+      "sedolCode": "{{entry.title}}",
+      "entryId": {{entry.id}},
+      "entryDate": "{{entry.postDate}}",
+      "jsonUrl": "{{entry.url}}"
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}

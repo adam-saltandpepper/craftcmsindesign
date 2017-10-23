@@ -1,0 +1,56 @@
+{
+  "data": [
+    {
+      "itemCode": "{{entry.title}}",
+      "entryId": {{entry.id}},
+      "entryDate": "{{entry.postDate}}",
+      "basicInfo": [
+        {
+            "schemeName": "{{entry.schemeName}}",
+            "productName": "{{entry.productName}}"
+        }
+      ],
+      "defaultFund": [
+        {% for item in entry.defaultFund %}
+        {
+          "sedolCode": "{{item.title}}",
+          "entryId": {{item.id}},
+          "entryDate": "{{item.postDate}}",
+          "manager": "{{item.fundManager}}",
+          "name": "{{item.fundName}}",
+          "objective": "{{item.fundObjective}}",
+          "riskRating": "{{item.fundRiskRating.value}}"
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
+      ],
+      "activeFunds": [
+        {% for block in entry.activeFunds %}
+        {
+          {% set fund = block.fundName.first %}
+          "sedolCode": "{{fund.title}}",
+          "entryId": {{fund.id}},
+          "entryDate": "{{fund.postDate}}",
+          "manager": "{{fund.fundManager}}",
+          "name": "{{fund.fundName}}",
+          "objective": "{{fund.fundObjective}}",
+          "riskRating": "{{fund.fundRiskRating.value}}",
+          "fundCharge": "{{block.fundCharge}}"
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
+      ],
+      "closedFunds": [
+      {% for item in entry.closedFunds %}
+        {
+          "sedolCode": "{{item.title}}",
+          "entryId": {{item.id}},
+          "entryDate": "{{item.postDate}}",
+          "manager": "{{item.fundManager}}",
+          "name": "{{item.fundName}}",
+          "objective": "{{item.fundObjective}}",
+          "riskRating": "{{item.fundRiskRating.value}}"
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
+      ]
+    }
+  ]
+}

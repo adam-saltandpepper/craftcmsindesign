@@ -1,0 +1,26 @@
+{
+  "data": [
+    {
+      "title": "{{entry.title}}",
+      "entryId": {{entry.id}},
+      "entryDate": "{{entry.postDate}}",
+      "features": [
+        {% for block in entry.fffeatures %}
+        {
+            "description": "{{block.desc}}",
+            "detail": "{{block.detail}}"
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
+      ],
+      "product": [
+        {% for block in entry.product %}
+        {
+            "productName": "{{block.productName}}",
+            "description": "{{block.desc}}",
+            "ids": "{{block.ids}}"
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
+      ]
+    }
+  ]
+}

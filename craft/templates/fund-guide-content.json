@@ -1,0 +1,14 @@
+{% set entries = craft.entries.section('fundGuideContentBlock') %}
+{
+  "data": [
+    {% for entry in entries %}
+    {
+      "title": "{{entry.title}}",
+      "entryId": {{entry.id}},
+      "entryDate": "{{entry.postDate}}",
+      "jsonUrl": "{{entry.url}}",
+      "textChunk": "{{entry.body}}"
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}

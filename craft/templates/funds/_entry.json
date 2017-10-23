@@ -1,0 +1,13 @@
+{
+  "data": [
+    {
+      "sedolCode": "{{entry.title}}",
+      "entryId": {{entry.id}},
+      "entryDate": "{{entry.postDate}}",
+      "manager": "{{entry.fundManager}}",
+      "name": "{{entry.fundName}}",
+      "objective": "{{entry.fundObjective}}",
+      "riskRating": "{{entry.fundRiskRating.value}}"
+    }
+  ]
+}

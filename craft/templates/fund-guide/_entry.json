@@ -1,0 +1,17 @@
+{
+  "data": [
+    {
+      "title": "{{entry.title}}",
+      "entryId": {{entry.id}},
+      "entryDate": "{{entry.postDate}}",
+      "content": [
+        {% for content in entry.testDocument %}
+        {
+            "contentTitle": "{{content.title}}",
+            "text": "{{content.body}}"
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
+      ]
+    }
+  ]
+}
